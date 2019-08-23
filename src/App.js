@@ -24,15 +24,25 @@ export default class App extends React.Component {
     let name = this.refs.name.value;
     let address = this.refs.address.value;
 
-    let data = {
-      name,
-      address
+    if (this.state.act === 0) {                             //NOVO
+      let data = {
+        name,
+        address
+      }
+
+      datas.push(data);
+    }
+    else if (this.state.act === 1) {                        //UPDATE
+
+      let index = this.state.index;
+      datas[index].name = name;
+      datas[index].address = address;
+
     }
 
-    datas.push(data);
-
     this.setState({
-      datas: datas
+      datas: datas,
+      act: 0
     })
 
     this.refs.myForm.reset();
@@ -47,6 +57,19 @@ export default class App extends React.Component {
 
     this.setState({
       datas: datas
+    })
+
+  }
+
+  fEdit = (i) => {
+    let data = this.state.datas[i];
+
+    this.refs.name.value = data.name;
+    this.reds.address.value = data.address;
+
+    this.setState({
+      act: 1,
+      index: i
     })
 
   }
