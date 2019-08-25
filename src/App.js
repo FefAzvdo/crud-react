@@ -136,7 +136,7 @@ export default class App extends React.Component {
 
         <Table striped bordered hover dark>
           <thead>
-            <tr>
+            <tr style={{ textAlign: 'center' }}>
               <th>#</th>
               <th>Nome</th>
               <th>Endereço</th>
