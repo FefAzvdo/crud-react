@@ -9,7 +9,8 @@ export default class App extends React.Component {
       title: 'CRUD simples com ReactJs',
       act: 0,
       index: '',
-      datas: []
+      datas: [],
+      btnName: 'ENVIAR',
     }
   }
 
@@ -50,7 +51,8 @@ export default class App extends React.Component {
 
     this.setState({
       datas: datas,
-      act: 0
+      act: 0,
+      btnName: 'ENVIAR'
     })
 
     this.refs.myForm.reset();
@@ -80,7 +82,8 @@ export default class App extends React.Component {
 
     this.setState({
       act: 1,
-      index: i
+      index: i,
+      btnName: 'EDITAR'
     })
 
   }
@@ -125,13 +128,13 @@ export default class App extends React.Component {
           </Container>
 
           <Button variant="primary" type="submit" size="lg" block onClick={(e) => this.fSubmit(e)} className="myButton">
-            ENVIAR
+            {this.state.btnName}
           </Button>
         </Form>
 
 
 
-        <Table striped bordered hover>
+        <Table striped bordered hover dark>
           <thead>
             <tr>
               <th>#</th>
